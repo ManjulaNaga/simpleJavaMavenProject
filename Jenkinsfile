@@ -1,4 +1,7 @@
 node {
+  stage('SCM') {
+      git 'https://github.com/ManjulaNaga/simpleJavaMavenProject.git'
+  }
   stage('maven') {
       sh 'mvn clean compile package sonar:sonar'
   }
