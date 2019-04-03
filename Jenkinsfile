@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage(‘SCM’) { 
             steps {
-                git 'https://github.com/ManjulaNaga/sample_project.git'
+                git 'https://github.com/ManjulaNaga/simpleJavaMavenProject.git'
             }
         }
         stage(‘Maven’) { 
