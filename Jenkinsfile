@@ -11,7 +11,7 @@ pipeline {
                  sh 'mvn clean compile package sonar:sonar'
             }
         }
-        stage(’Sonarqube Analysis’) { 
+        stage(’SonarqubeAnalysis’) { 
             steps {
                     // requires SonarQube Scanner 2.8+
     			def scannerHome = tool 'sonarqube';
