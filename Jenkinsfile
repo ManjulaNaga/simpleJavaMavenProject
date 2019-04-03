@@ -8,7 +8,7 @@ pipeline {
         }
         stage(‘Maven’) { 
             steps {
-                 sh 'mvn clean compile package sonar:sonar'
+                 sh 'clean compile package sonar:sonar'
             }
         }
         stage('Sonarqube') {
