@@ -11,12 +11,16 @@ pipeline {
                  sh 'mvn clean compile package sonar:sonar'
             }
         }
-        stage(’SonarqubeAnalysis’) { 
+        stage('Sonarqube') {
+            environment {
+                scannerHome = tool 'SonarQubeScanner'
+            }
             steps {
-                    // requires SonarQube Scanner 2.8+
-    			def scannerHome = tool 'sonarqube'
-    			withSonarQubeEnv('sonarqube') {
-     			sh "${scannerHome}/bin/sonar-scanner"
+                withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
