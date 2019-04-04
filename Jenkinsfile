@@ -17,13 +17,12 @@ pipeline {
             }
             steps {
                     sleep(10)
-                    qualitygate = waitForQualityGate()
-                    if (qualitygate.status != "OK") {
-                        withSonarQubeEnv('sonarqube') {
-                            sh "${scannerHome}/bin/sonar-scanner"
-                        }
+                    withSonarQubeEnv('sonarqube') {
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
-
+                    timeout(time:3, unit: 'MINUTES') {
+                        waitForQualityGate abortPipeline: true
+                    }   
             }
         }
     }
