@@ -3,15 +3,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.org.manju</groupId>
-  <artifactId>myMavenProject</artifactId>
+  <artifactId>myMavenPipelineProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>myMavenProject</name>
+  <name>myMavenPipelineProject</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!--start sonar -->
+    <sonar.version>7.6</sonar.version>
+        <!-- Configuration for sonar-packaging-maven-plugin -->
+    <sonar.pluginClass>org.sonar.dependencycheck.DependencyCheckPlugin</sonar.pluginClass>
+    <sonar.pluginName>Dependency-Check</sonar.pluginName>
+    <!--end -->
   </properties>
 
   <dependencies>
@@ -21,5 +27,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!--sonarqube> -->
+    <dependency>
+      <groupId>org.sonarsource.sonarqube</groupId>
+      <artifactId>sonar-plugin-api</artifactId>
+      <version>${sonar.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- end sonar -->
   </dependencies>
 </project>
+
