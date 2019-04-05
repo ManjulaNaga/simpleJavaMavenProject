@@ -13,7 +13,7 @@ pipeline {
         }
         stage(‘NexusPublish’) {
             steps{
-                nexusPublisher nexusInstanceId: 'gcpnexus',nexusRepositoryId: 'sample-project', 
+                nexusPublisher nexusInstanceId: 'gcpnexus',nexusRepositoryId: 'sample_project', 
                     packages: [[$class: 'MavenPackage', 
                                 mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], 
                                 mavenCoordinate: [artifactId: 'jenkins-war', groupId: 'org.jenkins-ci.main', 
