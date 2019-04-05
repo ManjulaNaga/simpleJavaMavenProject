@@ -13,7 +13,7 @@ pipeline {
         }
         
 
-        stage('NexusPublish') {
+        stage(‘NexusPublish’) {
                 nexusPublisher nexusInstanceId: 'localNexus', 
                     nexusRepositoryId: 'releases', 
                     packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'war/target/jenkins.war']], 
