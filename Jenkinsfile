@@ -15,7 +15,7 @@ pipeline {
             steps{
                 nexusPublisher nexusInstanceId: 'gcpnexus',nexusRepositoryId: 'sample-project', 
                     packages: [[$class: 'MavenPackage', 
-                                mavenAssetList: [[classifier: '', extension: '', filePath: 'war/target/jenkins.war']], 
+                                mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], 
                                 mavenCoordinate: [artifactId: 'jenkins-war', groupId: 'org.jenkins-ci.main', 
                                                   packaging: 'war', version: '2.23']]]
             }
