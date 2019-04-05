@@ -8,10 +8,10 @@ pipeline {
         }
         stage(‘Maven’) { 
             steps {
-                 sh 'mvn clean compile package sonar:sonar'
+                 sh 'mvn clean compile package /*sonar:sonar*/'
             }
         }
-        stage('Sonarqube') {
+        /*stage('Sonarqube') {
             environment {
                 scannerHome = tool 'sonarqube'
             }
@@ -25,6 +25,7 @@ pipeline {
                     }   
             }
         }
+        */
       
     }
 }
