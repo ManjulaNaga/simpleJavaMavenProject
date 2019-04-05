@@ -8,11 +8,9 @@ pipeline {
         }
         stage(‘Maven’) { 
             steps {
-                 sh 'mvn clean compile package sonar:sonar'
+                 sh 'mvn clean compile package'
             }
         }
-        
-
         stage(‘NexusPublish’) {
                 nexusPublisher nexusInstanceId: 'localNexus', 
                     nexusRepositoryId: 'releases', 
