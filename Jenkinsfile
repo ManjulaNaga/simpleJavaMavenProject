@@ -11,21 +11,9 @@ pipeline {
                  sh 'mvn clean compile package sonar:sonar'
             }
         }
-        stage('Sonarqube') {
-            environment {
-                scannerHome = tool 'sonarqube'
-            }
-            steps {
-                    sleep(10)
-                    withSonarQubeEnv('sonarqube') {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
-                    timeout(time:3, unit: 'MINUTES') {
-                        waitForQualityGate abortPipeline: true
-                    }   
-            }
-        }
-        stage('Publish') {
+        
+
+        stage('NexusPublish') {
                 nexusPublisher nexusInstanceId: 'localNexus', 
                     nexusRepositoryId: 'releases', 
                     packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'war/target/jenkins.war']], 
