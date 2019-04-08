@@ -1,15 +1,10 @@
 # Dockerfile
-FROM java:8
+FROM ubuntu:latest
 
-ENV MAVEN_VERSION 3.5.4
+RUN apt-get install -y python3  python-pip   
+RUN pip install --upgrade pip
 
-RUN mkdir -p /usr/share/maven \
-  && curl -fsSL http://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
-    | tar -xzC /usr/share/maven --strip-components=1 \
-  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+ADD sample.py /home/sample.py
+WORKDIR /home
+CMD python3 sample.py
 
-ENV MAVEN_HOME /usr/share/maven
-
-VOLUME /root/.m2
-
-CMD ["mvn"] 
