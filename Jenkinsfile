@@ -25,14 +25,9 @@ pipeline {
                     artifactId('nexus-artifact-uploader')
                     type('jar')
                     classifier('debug')
-                    file('nexus-artifact-uploader.jar')
+                    file('myMavenProject-0.0.1-SNAPSHOT.jar')
                 }
-                artifact {
-                    artifactId('nexus-artifact-uploader')
-                    type('hpi')
-                    classifier('debug')
-                    file('nexus-artifact-uploader.hpi')
-                }
+
               }
             }
         }
