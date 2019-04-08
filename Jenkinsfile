@@ -2,7 +2,7 @@ pipeline {
     agent any 
       tools {
         // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-         maven "Maven 3.6.0"
+         maven "maven"
        }
       environment {
             // This can be nexus3 or nexus2
