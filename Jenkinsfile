@@ -12,12 +12,28 @@ pipeline {
             }
         }
         stage(‘NexusPublish’) {
-            steps{
-                nexusPublisher nexusInstanceId: 'gcpnexus',nexusRepositoryId: 'sample_project', 
-                    packages: [[$class: 'MavenPackage', 
-                                mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/declarative_pipeline_demo2/target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], 
-                                mavenCoordinate: [artifactId: 'myMavenPipelineProject-war', groupId: 'org.com', 
-                                                  packaging: 'war', version: '0.01']]]
+            steps {
+              nexusArtifactUploader {
+                nexusVersion('nexus2')
+                protocol('http')
+                nexusUrl('35.237.58.180:8080/nexus')
+                groupId('manju.com')
+                version('.01')
+                repository('sample_project)
+                credentialsId('44620c50-1589-4617-a677-7563985e46e1')
+                artifact {
+                    artifactId('nexus-artifact-uploader')
+                    type('jar')
+                    classifier('debug')
+                    file('nexus-artifact-uploader.jar')
+                }
+                artifact {
+                    artifactId('nexus-artifact-uploader')
+                    type('hpi')
+                    classifier('debug')
+                    file('nexus-artifact-uploader.hpi')
+                }
+              }
             }
         }
       
