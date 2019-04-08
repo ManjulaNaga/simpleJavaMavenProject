@@ -48,7 +48,7 @@ pipeline {
             }
         stage('create container') {
             steps {
-                sh 'docker run naga488/samplejavamavenproject:48
+                sh 'docker run naga488/samplejavamavenproject:48'
             }
         }
         
