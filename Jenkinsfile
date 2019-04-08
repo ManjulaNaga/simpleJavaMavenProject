@@ -19,7 +19,7 @@ pipeline {
                 nexusUrl('35.237.58.180:8080/nexus')
                 groupId('manju.com')
                 version('.01')
-                repository('sample_project)
+                repository('sample_project')
                 credentialsId('44620c50-1589-4617-a677-7563985e46e1')
                 artifact {
                     artifactId('nexus-artifact-uploader')
