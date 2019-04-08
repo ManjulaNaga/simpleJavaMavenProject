@@ -46,11 +46,17 @@ pipeline {
                 }
               }
             }
-        stage('create container') {
+        
+        /*stage('create container') {
             steps {
-                sh 'docker run naga488/samplejavamavenproject:48'
+                sh 'docker run naga488/samplejavamavenproject:51'+
             }
+        }*/
+        stage('Remove Unused docker image') {
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
         }
+    }
         
       }
 }
