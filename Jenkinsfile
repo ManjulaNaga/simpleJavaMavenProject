@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        registry = "naga488/sampleJavaMacenProject"
+        registry = "naga488/sampleJavaMavenProject"
         registryCredential = "dockerhub"
     }
     stages {
