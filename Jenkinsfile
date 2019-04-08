@@ -13,7 +13,7 @@ pipeline {
         }
         stage(‘NexusPublish’) {
             steps {
-              nexusArtifactUploader {
+              sample_project {
                 nexusVersion('nexus2')
                 protocol('http')
                 nexusUrl('35.237.58.180:8080/nexus')
