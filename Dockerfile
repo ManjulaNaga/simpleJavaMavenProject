@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update 
-RUN install -y python3  python-pip   
+RUN apt-get install -y python3  python-pip   
 RUN pip install --upgrade pip
 
 ADD sample.py /home/sample.py
