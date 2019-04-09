@@ -28,10 +28,11 @@ pipeline {
             steps{
                 //nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'myid', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'myMavenPipelineProject', groupId: 'com.org.manju', packaging: 'war', version: '2.23']]]
                 //nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'myid3', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'hcl', groupId: 'org', packaging: 'war', version: '0.1']]]
-                nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'manju', groupId: 'com.org', packaging: 'war', version: '0.2']]]          
+               // nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'manju', groupId: 'com.org', packaging: 'war', version: '0.2']]]          
+                nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'hcl1', groupId: 'com.org', packaging: 'war', version: '0.2']]]
             }
         }
-         stage("publish to nexus") {
+         /*stage("publish to nexus") {
             steps {
                 script {
                     // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
@@ -73,7 +74,7 @@ pipeline {
                 }
             }
         }
-      
+      */
     }
 }
 
