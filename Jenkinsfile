@@ -24,6 +24,9 @@ pipeline {
                  sh 'mvn clean compile package'
             }
         }
+        stage("publish") {
+            nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'myid', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/declarative_pipeline_demo2/target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'myMavenPipelineProject', groupId: 'com.org.manju', packaging: 'war', version: '2.23']]]
+        }
          stage("publish to nexus") {
             steps {
                 script {
