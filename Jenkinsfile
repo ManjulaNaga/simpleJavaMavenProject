@@ -24,6 +24,20 @@ pipeline {
                  sh 'mvn clean compile package'
             }
         }
+        stage('Sonarqube') {
+            environment {
+                scannerHome = tool 'sonarqube'
+            }
+            steps {
+                    sleep(10)
+                    withSonarQubeEnv('sonarqube') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                    timeout(time:3, unit: 'MINUTES') {
+                        waitForQualityGate abortPipeline: true
+                    }   
+            }
+        }
         stage("publish") {
             steps{
                 //nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'myid', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'myMavenPipelineProject', groupId: 'com.org.manju', packaging: 'war', version: '2.23']]]
