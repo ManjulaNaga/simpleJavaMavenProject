@@ -52,11 +52,11 @@ pipeline {
                 sh 'docker run naga488/samplejavamavenproject:51'+
             }
         }*/
-       /* stage('Remove Unused docker image') {
+        stage('Remove Unused docker image') {
             steps{
                 sh "docker rmi $registry:$BUILD_NUMBER"
         }
-    }*/
+    }
         
       }
 }
