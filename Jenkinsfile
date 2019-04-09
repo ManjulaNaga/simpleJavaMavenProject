@@ -26,7 +26,8 @@ pipeline {
         }
         stage("publish") {
             steps{
-                nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'myid', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'myMavenPipelineProject', groupId: 'com.org.manju', packaging: 'war', version: '2.23']]]
+                //nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'myid', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'myMavenPipelineProject', groupId: 'com.org.manju', packaging: 'war', version: '2.23']]]
+                nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'myid3', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'hcl', groupId: 'org', packaging: 'war', version: '0.1']]]
             }
         }
          stage("publish to nexus") {
