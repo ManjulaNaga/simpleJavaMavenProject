@@ -46,6 +46,8 @@ pipeline {
                // nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'hcl1', groupId: 'com.org', packaging: 'war', version: '0.4']]]
                 //  nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'myid2', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'test', groupId: 'com.in', packaging: 'war', version: '0.1']]]        }
                 nexusPublisher nexusInstanceId: 'gcpnexus', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/myMavenPipelineProject-0.0.1-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'hcl4', groupId: 'com.org', packaging: 'war', version: '0.1']]]
+            }
+        }
     }
 }
 
